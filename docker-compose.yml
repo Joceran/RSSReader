@@ -1,0 +1,36 @@
+version: "2"
+
+services:
+   eureka:
+      build: ./eureka/
+      image: eureka
+      hostname: "eureka"
+      privileged: true
+      ports:
+         - "80:80"
+      networks:
+         - mynetwork
+
+   middletier:
+      build: ./rss-middletier/
+      image: rss-middletier-docker
+      hostname: "middletier"
+      links:
+         - eureka:eureka
+      networks:
+         - mynetwork
+
+   edge:
+      build: ./rss-edge/
+      image: rss-edge-docker
+      hostname: "edge"
+      links:
+         - eureka:eureka
+         - middletier:middletier
+      ports:
+         - "9090:9090"
+      networks:
+         - mynetwork
+
+networks:
+   mynetwork:
