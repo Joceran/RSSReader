@@ -23,6 +23,6 @@ WORKDIR /
 
 ADD rss-middletier-0.1.0-SNAPSHOT.jar .
 
-EXPOSE 9090 9092
+#EXPOSE 9090 9092
 
 CMD ["java","-jar","rss-middletier-0.1.0-SNAPSHOT.jar"]

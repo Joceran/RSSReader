@@ -1,4 +1,4 @@
-version: "2"
+version: '2'
 
 services:
    eureka:
@@ -15,11 +15,13 @@ services:
       build: ./rss-middletier/
       image: rss-middletier-docker
       hostname: "middletier"
+      ports:
+        - "9190:9191"
+        - "9191:9191"
       links:
          - eureka:eureka
       networks:
          - mynetwork
-
    edge:
       build: ./rss-edge/
       image: rss-edge-docker
@@ -29,6 +31,7 @@ services:
          - middletier:middletier
       ports:
          - "9090:9090"
+         - "9091:9090"
       networks:
          - mynetwork
 

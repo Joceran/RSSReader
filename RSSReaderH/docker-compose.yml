@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+   eureka:
+      build: ./eureka/
+      image: eureka
+      hostname: "eureka"
+      privileged: true
+      ports:
+         - "80:80"
+      networks:
+         - mynetwork
+
+   middletier:
+      build: ./docker-middle/
+      image: middleh
+      hostname: "middletier"
+      ports:
+        - "9190:9191"
+        - "9191:9191"
+      links:
+         - eureka:eureka
+      networks:
+         - mynetwork
+   edge:
+      build: ./docker-edge/
+      image: edgeh
+      hostname: "edge"
+      links:
+         - eureka:eureka
+         - middletier:middletier
+      ports:
+         - "9090:9090"
+         - "9091:9090"
+      networks:
+         - mynetwork
+
+networks:
+   mynetwork:
