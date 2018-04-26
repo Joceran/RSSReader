@@ -22,6 +22,7 @@ services:
          - eureka:eureka
       networks:
          - mynetwork
+
    edge:
       build: ./docker-edge/
       image: edgeh
