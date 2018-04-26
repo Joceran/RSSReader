@@ -1,16 +1,16 @@
-#RSSReader
+# RSSReader
 Joceran FICHOU--MEUNIER
 Amir ROMDHAME
 Allan BONHOMME
 ESIR2 SI Groupe 2
 
-Rapport disponible ici présent.
+Rapport [disponible ici](https://github.com/Joceran/RSSReader/blob/master/Compte%20Rendu%20Docker%20RSS.pdf)
 
-#Qu'est ce qui marche ?
+# Qu'est ce qui marche ?
 
 Le lancement avec docker-compose up de RSSReaderH, qui retélécharge les sources depuis netflix et les builds depuis le conteneur. Permet d'afficher la page rss.jsp
 
-#Qu'est ce qui ne marche pas
+# Qu'est ce qui ne marche pas
 
 L'ajout de flux RSS ne s'affiche pas mais semble être commun a tout le monde.
 
